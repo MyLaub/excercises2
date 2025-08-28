@@ -14,17 +14,26 @@ function addEventListenersToButtons(){
     scissorsBtn.addEventListener("click", scissorsKlik)
 }
 
+function resetTexts(){
+    document.querySelector("#draw").classList.add("hidden");
+    document.querySelector("#win").classList.add("hidden");
+    document.querySelector("#lose").classList.add("hidden");
+}
+
 function rockKlik(){
+    resetTexts()
     // console.log("ROCK")
     userChoice= "rock"
     computerGuess()
 }
 function paperKlik(){
+    resetTexts()
     // console.log("PAPER")
     userChoice= "paper"
      computerGuess()
 }
 function scissorsKlik(){
+    resetTexts()
     // console.log("SCISSORS")
     userChoice= "scissors"
      computerGuess()
@@ -37,18 +46,49 @@ function computerGuess(){
     const randomNum = Math.floor(Math.random()*3)
     computerChoice = choice_arr[randomNum]
     console.log("computerChoice", computerChoice)
-    // console.log(userChoice);
+    console.log(userChoice);
     // computerChoice = "paper"
     animationStarter();
 }
 
 
 function animationStarter(){
-    player1.classList.add("shake")
+    player1.classList.remove("paper","scissors")
+    player1.classList.add("rock", "shake")
+    player1.addEventListener("animationend", animationEnd);
+
+    player2.classList.remove("paper","scissors")
+    player2.classList.add("rock", "shake")
+    player2.addEventListener("animationend", animationEnd);
+
+
+    
 }
 
 function animationEnd(){
     //Evaluation
+
+    player1.classList.remove("shake","rock")
+    player1.classList.add(userChoice)
+    player1.removeEventListener("animationend", animationEnd)
+
+     player2.classList.remove("shake","rock")
+    player2.classList.add(computerChoice)
+    player1.removeEventListener("animationend", animationEnd)
+
+    showResultScreen();
 }
 
-function showResultScreen(){}
+function showResultScreen(){
+    if (computerChoice === userChoice){
+        document.querySelector("#draw").classList.remove("hidden");
+    } else if (computerChoice !== userChoice){
+        if ((userChoice === "rock" && computerChoice === "sciccors") || (userChoice === "paper" && computerChoice === "rock") || (userChoice === "scissors" && computerChoice === "paper")){
+            document.querySelector("#win").classList.remove("hidden");
+        } else {
+            document.querySelector("#lose").classList.remove("hidden");
+        }
+    }
+}
+
+addEventListenersToButtons();
