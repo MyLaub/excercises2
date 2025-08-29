@@ -59,7 +59,7 @@ function animationStarter(){
 
     player2.classList.remove("paper","scissors")
     player2.classList.add("rock", "shake")
-    player2.addEventListener("animationend", animationEnd);
+    // player2.addEventListener("animationend", animationEnd);
 
 
     
@@ -74,7 +74,7 @@ function animationEnd(){
 
      player2.classList.remove("shake","rock")
     player2.classList.add(computerChoice)
-    player1.removeEventListener("animationend", animationEnd)
+    // player1.removeEventListener("animationend", animationEnd)
 
     showResultScreen();
 }
