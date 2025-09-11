@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Light */
+  --baggrund-light: #ffffff;
+  --text-light: #2d1111;
+  --header-light: #eeeed5;
+  --footer-light: #eaeaac;
+  --headline-light: #7d2c2c;
+
+  /* Dark */
+  --baggrund-dark: #1f1f1f;
+  --text-dark: #ffffff;
+  --header-dark: #262626;
+  --footer-dark: #000000;
+  --headline-dark: #4b5b47;
+
+  /* Hawaii */
+  --baggrund-hawaii: #00e7ff;
+  --text-hawaii: #111111;
+  --header-hawaii: #ffe600;
+  --footer-hawaii: #ff4b1f;
+  --headline-hawaii: #ff69b4;
+
+  --pad: 1rem;
+  --radius: 12px;
+  --maxw: 1100px;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.6;
+  padding: 24px;
+}
+
+header,
+main,
+footer {
+  width: min(100%, var(--maxw));
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+header {
+  background: var(--header-bg);
+  border-bottom: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+main {
+  border-bottom: 2px solid black;
+}
+
+footer {
+  background: var(--footer-bg);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--headline-col);
+}
+
+body[data-theme="light"] {
+  --page-bg: var(--baggrund-light);
+  --fg: var(--text-light);
+  --header-bg: var(--header-light);
+  --footer-bg: var(--footer-light);
+  --headline-col: var(--headline-light);
+}
+
+body[data-theme="dark"] {
+  --page-bg: var(--baggrund-dark);
+  --fg: var(--text-dark);
+  --header-bg: var(--header-dark);
+  --footer-bg: var(--footer-dark);
+  --headline-col: var(--headline-dark);
+}
+
+body[data-theme="hawaii"] {
+  --page-bg: var(--baggrund-hawaii);
+  --fg: var(--text-hawaii);
+  --header-bg: var(--header-hawaii);
+  --footer-bg: var(--footer-hawaii);
+  --headline-col: var(--headline-hawaii);
+}
