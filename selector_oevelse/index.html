@@ -1,36 +1,66 @@
 <!-- 
-p = “Vælg alle p-elementer”
+p = 
+“Vælg alle p-elementer”
 
-p.vigtig = “Vælg alle p-elementer, som har klassen ‘vigtig’”
 
-Forsæt selv herunder...
+p.vigtig = 
+“Vælg alle p-elementer, som har klassen ‘vigtig’”
 
-section p = "Vælg alle p der er i section"
 
-section > h2 = "Vælg alle overskrifter, der ligger direkte inde i en sektion. KUN direkte barn, altså ikke hvis der ligger en h2 inde i en div i en section eks."
 
-main > * = "Kun direkte børn af main. Så alle elementer, der er direkte børn af main"
 
-article * = "Alle elementer der er i article"
+section p = 
+"Vælg alle p der er i section"
 
-h2 + p = "Alle h2 og p elementer"
 
-ul > li + li = "alle li’er undtagen den første i hver liste."
+section > h2 = 
+"Vælg alle overskrifter, der ligger direkte inde i en sektion. KUN direkte barn, altså ikke hvis der ligger en h2 inde i en div i en section eks."
 
-* + * = "Vælg ethvert element, som kommer umiddelbart efter et vilkårligt søskende-element. dvs. alle elementer, der ikke er første barn i deres forælder."
 
-.column :last-child = "alle .column elementer, som er det sidste barn af sin egen forælder"
+main > * = 
+"Kun direkte børn af main. Så alle elementer, der er direkte børn af main"
 
-li:nth-of-type(3) = "vælg tredje li element"
 
-a :hover = "hover-state på alle a tags"
+article * = 
+"Alle elementer der er i article"
 
-p ~ p = "ethvert <p> der har et tidligere søskende-<p> med samme forælder. De behøver ikke ligge lige efter hinanden"
 
-button:is(:hover, :focus-visible) = "Når den enten er hovered eller har fokus, der er synligt (typisk tastaturfokus). Det er en kort måde at skrive button:hover,
+h2 + p =
+"Alle h2 og p elementer"
+
+
+ul > li + li = 
+"alle li’er undtagen den første i hver liste."
+
+
+* + * = 
+"Vælg ethvert element, som kommer umiddelbart efter et vilkårligt søskende-element. dvs. alle elementer, der ikke er første barn i deres forælder."
+
+
+.column :last-child = 
+"alle .column elementer, som er det sidste barn af sin egen forælder"
+
+
+li:nth-of-type(3) = 
+"vælg tredje li element"
+
+
+a :hover = 
+"hover-state på alle a tags"
+
+
+p ~ p = 
+"ethvert <p> der har et tidligere søskende-<p> med samme forælder. De behøver ikke ligge lige efter hinanden"
+
+
+button:is(:hover, :focus-visible) = 
+"Når den enten er hovered eller har fokus, der er synligt (typisk tastaturfokus). Det er en kort måde at skrive button:hover,
 button:focus-visible { ... }"
 
-section > p:not(:first-of-type, :last-child) = "vælg p'er der er direkte børn af sektion. udeluk dem, der er første <p> blandt søskende af samme type eller dem, der er sidste barn i sektionen (uanset type)."
+
+section > p:not(:first-of-type, :last-child) = 
+"vælg p'er der er direkte børn af sektion. udeluk dem, der er første <p> blandt søskende af samme type eller dem, der er sidste barn i sektionen (uanset type)."
+
     <section>
   <h2>Intro</h2>
   <p>P1</p>        udelukkes: første-of-type 
@@ -39,7 +69,11 @@ section > p:not(:first-of-type, :last-child) = "vælg p'er der er direkte børn 
   <p>P3</p>         matches, medmindre det er sidste barn 
     </section>
 
-:is(ul, ol) > li + li = "vælg enten ul eller ol, kig på deres direkte <li>-børn, vælg hvert <li>, som står lige efter et andet <li>"
+
+
+:is(ul, ol) > li + li = 
+"vælg enten ul eller ol, kig på deres direkte <li>-børn, vælg hvert <li>, som står lige efter et andet <li>"
+
     <ul>
     <li>Første</li>   ikke ramt 
     <li>Anden</li>    ramt 
@@ -52,17 +86,25 @@ section > p:not(:first-of-type, :last-child) = "vælg p'er der er direkte børn 
     </ol>
 
 
-ul[class] > :first-child = "vælg kun de ul der har en class. og så de direkte børn"
 
-:nth-last-child(1 of .a) = "Vælg et element, hvis det er den sidste blandt sine søskende, der matcher .a, talt bagfra."
-    <ul>
+ul[class] > :first-child = 
+"vælg kun de ul der har en class. og så de direkte børn"
+
+
+:nth-last-child(1 of .a) = 
+"Vælg et element, hvis det er den sidste blandt sine søskende, der matcher .a, talt bagfra."
+    
+<ul>
     <li class="a">1</li>
     <li>2</li>
     <li class="a">3</li>  matches: sidste .a blandt søskende 
     <li>4</li>
     </ul>
 
-div:has(img) = "Vælg de <div>-elementer, som indeholder et <img> et eller andet sted indeni (barn, barnebarn,)"
+
+
+div:has(img) = 
+"Vælg de <div>-elementer, som indeholder et <img> et eller andet sted indeni (barn, barnebarn,)"
 
     /* Giv ramme til alle divs der indeholder et billede */
     div:has(img) {
@@ -84,6 +126,9 @@ a {
   &:hover {...}
 } = 
 
+
+
+& === :is(h1, h2)
 
 
 
